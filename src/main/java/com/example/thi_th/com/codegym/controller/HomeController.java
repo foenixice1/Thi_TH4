@@ -64,6 +64,7 @@ public class HomeController {
         }
         cityService.save(city);
         ModelAndView modelAndView = new ModelAndView("redirect:/home");
+        modelAndView.addObject("checkCreate", "Thêm thành phố thành công");
         modelAndView.addObject("city", new City());
         return modelAndView;
     }
@@ -81,10 +82,12 @@ public class HomeController {
         if (bindingResult.hasFieldErrors()) {
             ModelAndView modelAndView = new ModelAndView("edit");
             modelAndView.addObject("city", city);
+            modelAndView.addObject("checkEdit", "Sửa thành phố thành công");
             return modelAndView;
         }
+        ModelAndView modelAndView = new ModelAndView("redirect:/home");
         cityService.save(city);
-        return new ModelAndView("redirect:/home");
+        return modelAndView;
     }
 
     @GetMapping("/delete/{id}")
@@ -99,6 +102,7 @@ public class HomeController {
     public ModelAndView delete(@ModelAttribute City city) {
         cityService.delete(city.getId());
         ModelAndView modelAndView = new ModelAndView("redirect:/home");
+        modelAndView.addObject("checkDelete", "Xóa thành phố thành công");
         return modelAndView;
     }
     @GetMapping("/findByName")

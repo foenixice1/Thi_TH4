@@ -216,44 +216,47 @@
 <body>
 
 
-<div id="form">
-  <a href="/home">See List City</a>
+<div id="form" >
+  <a href="/home" style="text-align: center ; margin-left: 850px;" >See List City</a>
   <div class="fish" id="fish"></div>
   <div class="fish" id="fish2"></div>
+  <br>
+  <br>
 
-    <div class="formgroup" id="email-form">
+    <div class="formgroup" id="email-form" style="text-align: center ; margin-left: 600px;">
       <label for="email">City</label>
       <span type="City" id="email" th:text="${city.name}" />
     </div>
 
-  <div class="formgroup" id="country-form">
+  <div class="formgroup" id="country-form" style="text-align: center ; margin-left: 600px;">
     <label for="country">Country</label>
     <span type="country" id="country" th:each="country:${city.country}">
       <span th:text="${country.getName()}"></span>
     </span>
   </div>
 
-  <div class="formgroup" id="area-form">
+  <div class="formgroup" id="area-form" style="text-align: center ; margin-left: 600px;">
     <label for="area">Area</label>
     <span type="area" id="area" th:text="${city.area}" />
   </div>
 
 
-  <div class="formgroup" id="population-form">
+  <div class="formgroup" id="population-form" style="text-align: center ; margin-left: 600px;">
     <label for="population">Population</label>
     <span type="population" id="population" th:text="${city.population}" />
   </div>
-  <div class="formgroup" id="gdp-form">
+  <div class="formgroup" id="gdp-form" style="text-align: center ; margin-left: 600px;">
     <label for="gdp">GDP</label>
     <span type="gdp" id="gdp" th:text="${city.gdp}" />
   </div>
 
-    <div class="formgroup" id="introduce-form">
+    <div class="formgroup" id="introduce-form" style="text-align: center ; margin-left: 600px;">
       <label for="introduce">Introduce</label>
       <span id="introduce" th:text="${city.introduce}"></span>
     </div>
-
-   <a th:href="@{/edit/{id}(id=${city.id})}" >Edit</a> | <a th:href="@{/delete/{id}(id=${city.id})}">Delete</a>
+<br>
+<br>
+   <a th:href="@{/edit/{id}(id=${city.id})}" style="text-align: center;margin-left: 850px;" >Edit</a> | <a th:href="@{/delete/{id}(id=${city.id})}" style="text-align: center">Delete</a>
 </div>
 </body>
 </html>
